@@ -63,22 +63,6 @@ namespace WindowsFormsApp2
         }
 
 
-        private void BtnNewGame_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Nová hra byla spuštěna!");
-
-            gameBoard.Invalidate();
-        }
-
-        private void BtnSave_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Hra byla uložena (zatím neimplementováno).");
-        }
-
-        private void BtnLoad_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Hra byla načtena (zatím neimplementováno).");
-        }
 
         private void BtnExit_Click(object sender, EventArgs e)
         {
@@ -97,21 +81,49 @@ namespace WindowsFormsApp2
 
         private void DrawGrid(Graphics g)
         {
+
+            // Počet sloupců
             int cols = 10;
+            // Počet řádků
             int rows = 8;
+            // Velikost každého čtverečku
             int cellSize = 50;
+            // barva a tloušťka.
             Pen gridPen = new Pen(Color.LightGray, 1);
 
+            // Odsazení
+            int odsazeni = 20;
+
+
+            // SLOUPCE
+            // Smyčka projde tolikrát, kolik chceme sloupců + jednu čáru navíc pro uzavření mřížky.
             for (int i = 0; i <= cols; i++)
-                g.DrawLine(gridPen, i * cellSize + 20, 20, i * cellSize + 20, rows * cellSize + 20);
+            {
+                // x
+                int x = i * cellSize + odsazeni;
+                // y - konec
+                int y2 = rows * cellSize + odsazeni;
 
+                // nakresleni
+                g.DrawLine(gridPen, x, odsazeni, x, y2);
+            }
 
+            // ŘÁDKY
+            // Smyčka projde tolikrát, kolik chceme řádků + jednu čáru navíc.
             for (int j = 0; j <= rows; j++)
-                g.DrawLine(gridPen, 20, j * cellSize + 20, cols * cellSize + 20, j * cellSize + 20);
+            {
+                // y
+                int y = j * cellSize + odsazeni;
+                // x - konec
+                int x2 = cols * cellSize + odsazeni;
 
-            Brush gateBrush = new SolidBrush(Color.LightBlue);
+                // nakresleni
+                g.DrawLine(gridPen, odsazeni, y, x2, y);
+            }
+
+            Brush gateBrush = new SolidBrush(Color.LightBlue);//brana modry (vlevo) a
             g.FillRectangle(gateBrush, 10, (rows / 2 - 1) * cellSize + 20, 10, cellSize * 2);
-            gateBrush = new SolidBrush(Color.Firebrick);
+            gateBrush = new SolidBrush(Color.Firebrick);//brana cerveny (vpravo)
             g.FillRectangle(gateBrush, cols * cellSize + 20, (rows / 2 - 1) * cellSize + 20, 10, cellSize * 2);
         }
 
