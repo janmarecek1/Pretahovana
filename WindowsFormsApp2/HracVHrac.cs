@@ -4,10 +4,10 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp2
 {
-    public partial class Form1 : Form
+    public partial class HracVHrac : Form
     {
 
-        public Form1()
+        public HracVHrac()
         {
 
             InitializeComponent();
@@ -25,36 +25,6 @@ namespace WindowsFormsApp2
                 Width = 200,
                 BackColor = Color.FromArgb(230, 230, 230)
             };
-
-
-            btnNewGame = new Button()
-            {
-                Text = "Nová hra",
-                Width = 160,
-                Height = 40,
-                Location = new Point(20, 20)
-            };
-            btnNewGame.Click += BtnNewGame_Click;
-
-
-            btnSave = new Button()
-            {
-                Text = "Uložit",
-                Width = 160,
-                Height = 40,
-                Location = new Point(20, 70)
-            };
-            btnSave.Click += BtnSave_Click;
-
-
-            btnLoad = new Button()
-            {
-                Text = "Načíst",
-                Width = 160,
-                Height = 40,
-                Location = new Point(20, 120)
-            };
-            btnLoad.Click += BtnLoad_Click;
 
 
             btnExit = new Button()
@@ -75,22 +45,10 @@ namespace WindowsFormsApp2
                 Font = new Font("Segoe UI", 10, FontStyle.Bold)
             };
 
-            cmbMode = new ComboBox()
-            {
-                Width = 160,
-                Height = 30,
-                Location = new Point(20, 270),
-                DropDownStyle = ComboBoxStyle.DropDownList
-            };
-            cmbMode.Items.AddRange(new string[] { "Hráč vs Hráč", "Hráč vs Počítač" });
-            cmbMode.SelectedIndex = 0;
 
-            controlPanel.Controls.Add(btnNewGame);
-            controlPanel.Controls.Add(btnSave);
-            controlPanel.Controls.Add(btnLoad);
             controlPanel.Controls.Add(btnExit);
             controlPanel.Controls.Add(lblTurn);
-            controlPanel.Controls.Add(cmbMode);
+
 
             gameBoard = new PictureBox()
             {
@@ -146,7 +104,7 @@ namespace WindowsFormsApp2
 
             for (int i = 0; i <= cols; i++)
                 g.DrawLine(gridPen, i * cellSize + 20, 20, i * cellSize + 20, rows * cellSize + 20);
-          
+
 
             for (int j = 0; j <= rows; j++)
                 g.DrawLine(gridPen, 20, j * cellSize + 20, cols * cellSize + 20, j * cellSize + 20);
@@ -162,6 +120,11 @@ namespace WindowsFormsApp2
         {
         }
         private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void HracVHrac_Load(object sender, EventArgs e)
         {
 
         }
