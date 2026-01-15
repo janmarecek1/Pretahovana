@@ -46,7 +46,7 @@
             "Hráč vs Počítač"});
             this.cmbMode.Location = new System.Drawing.Point(0, 0);
             this.cmbMode.Name = "cmbMode";
-            this.cmbMode.Size = new System.Drawing.Size(121, 21);
+            this.cmbMode.Size = new System.Drawing.Size(121, 28);
             this.cmbMode.TabIndex = 5;
             // 
             // lblTurn
@@ -105,13 +105,13 @@
             this.gameBoard.TabIndex = 0;
             this.gameBoard.TabStop = false;
             // 
-            // Form1
+            // HracVHrac
             // 
             this.BackColor = System.Drawing.Color.LightGray;
-            this.ClientSize = new System.Drawing.Size(980, 600);
+            this.ClientSize = new System.Drawing.Size(998, 622);
             this.Controls.Add(this.gameBoard);
             this.Controls.Add(this.controlPanel);
-            this.Name = "Form1";
+            this.Name = "HracVHrac";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Přetahovaná";
             this.controlPanel.ResumeLayout(false);

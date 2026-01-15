@@ -22,8 +22,11 @@ namespace WindowsFormsApp2
 
             Form hra = new HracVHrac();
 
-            hra.Show();
             this.Hide();
+
+            hra.ShowDialog();
+
+            this.Show();
         }
     }
 }
